@@ -4,8 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../../../PIC16F887_Libraries_C/lib_osccon.h</itemPath>
-      <itemPath>../../../PIC16F887_Libraries_C/lib_adc.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -14,8 +12,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>../../../PIC16F887_Libraries_C/lib_adc.c</itemPath>
-      <itemPath>../../../PIC16F887_Libraries_C/lib_osccon.c</itemPath>
       <itemPath>Lab3_v1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -27,6 +23,7 @@
   <sourceRootList>
     <Elem>../../Digital2_Lab2/Lab2_ver2.X</Elem>
     <Elem>../../../PIC16F887_Libraries_C</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
