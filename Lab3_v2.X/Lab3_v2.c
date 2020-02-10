@@ -1,5 +1,5 @@
 /*
- * File:   Lab3_v1.c
+ * File:   Lab3_v2.c
  * Author: Peter
  *
  * Created on February 6, 2020, 11:08 AM
@@ -29,42 +29,26 @@
 // Use project enums instead of #define for ON and OFF.
 
 #include <xc.h>
-#include "lib_adc.h"
-#include "lib_osccon.h"
+#include <stdint.h>
+//#include "lib_adc.h"
+//#include "lib_osccon.h"
+#include "LCDv1.h"
 
 #define _XTAL_FREQ 4000000
 
-#define lcd_rs PORTCbits.RC0
-#define lcd_rw PORTCbits.RC1
-#define lcd_en PORTCbits.RC2
-#define lcd_data PORTA
-
-int cont = 0;
-char disp = 0;
-
 void setup(void);
-void lcd_init(void);
-void lcd_cmd(unsigned char cmd);
-void lcd_write(unsigned char data);
-void lcd_display(char *value);
-void poll_flag(void);
-void delay_1ms(void);
-
 
 void __interrupt() isr(){
     
 }
 
-void setup(void);
-
-void main(void) {
+void main(void){
     setup();
-    lcd_init();
-    lcd_display("PROBANDO");
-    lcd_cmd(0xC0);
-    lcd_display("ESTA MIERDA");
+    lcd8_init2();
+    lcd8_display("PINCHE PIRUJA");
+    lcd8_cmd(0xC0);
+    lcd8_display("CHINGUESE");
     while(1);
-    return;
 }
 
 void setup(void){
@@ -78,70 +62,5 @@ void setup(void){
     PORTA = 0x00;
     PORTC = 0x00;
     PORTD = 0x00;
-}
-
-void delay_1ms(void){
-    for (int i = 0; i < 50; i++);
-}
-
-void lcd_init(void){
-    __delay_ms(20);
-    lcd_cmd(0x30);
-    __delay_ms(5);
-    lcd_cmd(0x30);
-    __delay_ms(1);
-    lcd_cmd(0x30);
-    __delay_ms(1);
-    lcd_cmd(0x38);
-    lcd_cmd(0x10);
-    lcd_cmd(0x01);
-    lcd_cmd(0x06);
-    lcd_cmd(0x0C);
-    lcd_cmd(0x80);
-}
-
-void lcd_cmd(unsigned char cmd){
-    poll_flag();
-    lcd_data = cmd;
-    lcd_rs = 0;
-    lcd_rw = 0;
-    lcd_en = 1;
-    delay_1ms();
-    lcd_en = 0;
-}
-
-void lcd_write(unsigned char data){
-    poll_flag();
-    lcd_data = data;
-    lcd_rs = 1;
-    lcd_rw = 0;
-    lcd_en = 1;
-    delay_1ms();
-    lcd_en = 0;
-}
-
-void lcd_display(char *value){
-    while(*value){
-        lcd_write(*value++);
-    }
-}
-
-void poll_flag(void){
-    lcd_rs = 0;
-    lcd_rw = 1;
-    lcd_en = 0;
-    delay_1ms();
-    lcd_en = 1;
-    if (PORTAbits.RA7 == 1){
-        lcd_en = 0;
-        delay_1ms();
-        lcd_en = 1;
-    }
-}
-
-void intEnable(void){
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    PIE1bits.ADIE = 1;
 }
 

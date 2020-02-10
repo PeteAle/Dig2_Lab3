@@ -1,19 +1,78 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1868 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1868:     struct {
-[s S70 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S70 . SCS LTS HTS OSTS IRCF ]
-"1875
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1875:     struct {
-[s S71 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . . IRCF0 IRCF1 IRCF2 ]
-"1867
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1867: typedef union {
-[u S69 `S70 1 `S71 1 ]
-[n S69 . . . ]
-"1882
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1882: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0x08F)));
-[v _OSCCONbits `VS69 ~T0 @X0 0 e@143 ]
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+[p mainexit ]
+"39 Lab3_v2.c
+[; ;Lab3_v2.c: 39: void setup(void);
+[v _setup `(v ~T0 @X0 0 ef ]
+"37 ./LCDv1.h
+[; ;./LCDv1.h: 37: void lcd8_init2(void);
+[v _lcd8_init2 `(v ~T0 @X0 0 ef ]
+"40
+[; ;./LCDv1.h: 40: void lcd8_display(char *value);
+[v _lcd8_display `(v ~T0 @X0 0 ef1`*uc ]
+"38
+[; ;./LCDv1.h: 38: void lcd8_cmd(unsigned char cmd);
+[v _lcd8_cmd `(v ~T0 @X0 0 ef1`uc ]
+"1416 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1416: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"1478
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1478: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"1540
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
+[v _TRISC `Vuc ~T0 @X0 0 e@135 ]
+"1602
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 1602: extern volatile unsigned char TRISD __attribute__((address(0x088)));
+[v _TRISD `Vuc ~T0 @X0 0 e@136 ]
+"3387
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@392 ]
+"3455
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3455:     struct {
+[s S135 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S135 . ANS8 ANS9 ANS10 ANS11 ANS12 ANS13 ]
+"3454
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3454: typedef union {
+[u S134 `S135 1 ]
+[n S134 . . ]
+"3464
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3464: extern volatile ANSELHbits_t ANSELHbits __attribute__((address(0x189)));
+[v _ANSELHbits `VS134 ~T0 @X0 0 e@393 ]
+"166
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 166: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"290
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 290: extern volatile unsigned char PORTC __attribute__((address(0x007)));
+[v _PORTC `Vuc ~T0 @X0 0 e@7 ]
+"352
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"13 Lab3_v2.c
+[p x FOSC = INTRC_NOCLKOUT ]
+"14
+[p x WDTE = OFF ]
+"15
+[p x PWRTE = OFF ]
+"16
+[p x MCLRE = OFF ]
+"17
+[p x CP = OFF ]
+"18
+[p x CPD = OFF ]
+"19
+[p x BOREN = OFF ]
+"20
+[p x IESO = OFF ]
+"21
+[p x FCMEN = OFF ]
+"22
+[p x LVP = OFF ]
+"25
+[p x BOR4V = BOR40V ]
+"26
+[p x WRT = OFF ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -248,253 +307,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3546
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
-"11 ../../../PIC16F887_Libraries_C/lib_osccon.c
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 11: unsigned char oscInt(unsigned char freq) {
-[v _oscInt `(uc ~T0 @X0 1 ef1`uc ]
+[v $root$_isr `(v ~T0 @X0 0 e ]
+"41 Lab3_v2.c
+[; ;Lab3_v2.c: 41: void __attribute__((picinterrupt(("")))) isr(){
+[v _isr `(v ~T1 @X0 1 ef ]
 {
-[e :U _oscInt ]
-[v _freq `uc ~T0 @X0 1 r1 ]
+[e :U _isr ]
 [f ]
-"12
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 12:     switch(freq){
-[e $U 140  ]
-{
-"13
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 13:         case 0:
-[e :U 141 ]
-"14
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 14:             OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"15
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 15:             OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
-"16
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 16:             OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-"17
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 17:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"18
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 18:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"19
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 19:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"20
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 20:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"21
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 21:             break;
-[e $U 139  ]
-"22
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 22:         case 1:
-[e :U 142 ]
-"23
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 23:             OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"24
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 24:             OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
-"25
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 25:             OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"26
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 26:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"27
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 27:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"28
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 28:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"29
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 29:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"30
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 30:             break;
-[e $U 139  ]
-"31
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 31:         case 2:
-[e :U 143 ]
-"32
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 32:             OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"33
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 33:             OSCCONbits.IRCF1 = 0;
-[e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
-"34
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 34:             OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-"35
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 35:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"36
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 36:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"37
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 37:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"38
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 38:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"39
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 39:             break;
-[e $U 139  ]
-"40
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 40:         case 3:
-[e :U 144 ]
-"41
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 41:             OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"42
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 42:             OSCCONbits.IRCF1 = 0;
-[e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
 "43
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 43:             OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"44
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 44:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"45
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 45:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"46
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 46:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"47
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 47:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"48
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 48:             break;
-[e $U 139  ]
-"49
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 49:         case 4:
-[e :U 145 ]
-"50
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 50:             OSCCONbits.IRCF2 = 0;
-[e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
-"51
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 51:             OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
-"52
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 52:             OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-"53
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 53:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"54
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 54:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"55
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 55:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"56
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 56:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"57
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 57:             break;
-[e $U 139  ]
-"58
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 58:         case 5:
-[e :U 146 ]
-"59
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 59:             OSCCONbits.IRCF2 = 0;
-[e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
-"60
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 60:             OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 2 -> -> 1 `i `uc ]
-"61
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 61:             OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"62
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 62:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"63
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 63:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"64
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 64:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"65
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 65:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"66
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 66:             break;
-[e $U 139  ]
-"67
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 67:         case 6:
-[e :U 147 ]
-"68
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 68:             OSCCONbits.IRCF2 = 0;
-[e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
-"69
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 69:             OSCCONbits.IRCF1 = 0;
-[e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
-"70
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 70:             OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 1 -> -> 1 `i `uc ]
-"71
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 71:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"72
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 72:             OSCCONbits.HTS = 1;
-[e = . . _OSCCONbits 0 2 -> -> 1 `i `uc ]
-"73
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 73:             OSCCONbits.LTS = 0;
-[e = . . _OSCCONbits 0 1 -> -> 0 `i `uc ]
-"74
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 74:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"75
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 75:             break;
-[e $U 139  ]
-"76
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 76:         case 7:
-[e :U 148 ]
-"77
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 77:             OSCCONbits.IRCF2 = 0;
-[e = . . _OSCCONbits 1 3 -> -> 0 `i `uc ]
-"78
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 78:             OSCCONbits.IRCF1 = 0;
-[e = . . _OSCCONbits 1 2 -> -> 0 `i `uc ]
-"79
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 79:             OSCCONbits.IRCF0 = 0;
-[e = . . _OSCCONbits 1 1 -> -> 0 `i `uc ]
-"80
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 80:             OSCCONbits.OSTS = 0;
-[e = . . _OSCCONbits 0 3 -> -> 0 `i `uc ]
-"81
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 81:             OSCCONbits.HTS = 0;
-[e = . . _OSCCONbits 0 2 -> -> 0 `i `uc ]
-"82
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 82:             OSCCONbits.LTS = 1;
-[e = . . _OSCCONbits 0 1 -> -> 1 `i `uc ]
-"83
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 83:             OSCCONbits.SCS = 1;
-[e = . . _OSCCONbits 0 0 -> -> 1 `i `uc ]
-"84
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 84:             break;
-[e $U 139  ]
-"85
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 85:     }
-}
-[e $U 139  ]
-[e :U 140 ]
-[e [\ -> _freq `i , $ -> 0 `i 141
- , $ -> 1 `i 142
- , $ -> 2 `i 143
- , $ -> 3 `i 144
- , $ -> 4 `i 145
- , $ -> 5 `i 146
- , $ -> 6 `i 147
- , $ -> 7 `i 148
- 139 ]
-[e :U 139 ]
-"86
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 86:     return(freq);
-[e ) _freq ]
-[e $UE 138  ]
-"87
-[; ;../../../PIC16F887_Libraries_C/lib_osccon.c: 87: }
+[; ;Lab3_v2.c: 43: }
 [e :UE 138 ]
 }
+[v $root$_main `(v ~T0 @X0 0 e ]
+"45
+[; ;Lab3_v2.c: 45: void main(void){
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"46
+[; ;Lab3_v2.c: 46:     setup();
+[e ( _setup ..  ]
+"47
+[; ;Lab3_v2.c: 47:     lcd8_init2();
+[e ( _lcd8_init2 ..  ]
+"48
+[; ;Lab3_v2.c: 48:     lcd8_display("PINCHE PIRUJA");
+[e ( _lcd8_display (1 :s 1C ]
+"49
+[; ;Lab3_v2.c: 49:     lcd8_cmd(0xC0);
+[e ( _lcd8_cmd (1 -> -> 192 `i `uc ]
+"50
+[; ;Lab3_v2.c: 50:     lcd8_display("CHINGUESE");
+[e ( _lcd8_display (1 :s 2C ]
+"51
+[; ;Lab3_v2.c: 51:     while(1);
+[e :U 141 ]
+[e :U 140 ]
+[e $U 141  ]
+[e :U 142 ]
+"52
+[; ;Lab3_v2.c: 52: }
+[e :UE 139 ]
+}
+"54
+[; ;Lab3_v2.c: 54: void setup(void){
+[v _setup `(v ~T0 @X0 1 ef ]
+{
+[e :U _setup ]
+[f ]
+"55
+[; ;Lab3_v2.c: 55:     TRISA = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
+"56
+[; ;Lab3_v2.c: 56:     TRISB = 0xFF;
+[e = _TRISB -> -> 255 `i `uc ]
+"57
+[; ;Lab3_v2.c: 57:     TRISC = 0x00;
+[e = _TRISC -> -> 0 `i `uc ]
+"58
+[; ;Lab3_v2.c: 58:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
+"59
+[; ;Lab3_v2.c: 59:     ANSEL = 0x00;
+[e = _ANSEL -> -> 0 `i `uc ]
+"60
+[; ;Lab3_v2.c: 60:     ANSELHbits.ANS13 = 1;
+[e = . . _ANSELHbits 0 5 -> -> 1 `i `uc ]
+"61
+[; ;Lab3_v2.c: 61:     ANSELHbits.ANS8 = 1;
+[e = . . _ANSELHbits 0 0 -> -> 1 `i `uc ]
+"62
+[; ;Lab3_v2.c: 62:     PORTA = 0x00;
+[e = _PORTA -> -> 0 `i `uc ]
+"63
+[; ;Lab3_v2.c: 63:     PORTC = 0x00;
+[e = _PORTC -> -> 0 `i `uc ]
+"64
+[; ;Lab3_v2.c: 64:     PORTD = 0x00;
+[e = _PORTD -> -> 0 `i `uc ]
+"65
+[; ;Lab3_v2.c: 65: }
+[e :UE 143 ]
+}
+[a 2C 67 72 73 78 71 85 69 83 69 0 ]
+[a 1C 80 73 78 67 72 69 32 80 73 82 85 74 65 0 ]

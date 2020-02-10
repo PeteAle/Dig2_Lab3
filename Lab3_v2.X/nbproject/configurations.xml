@@ -5,7 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>LCDv1.h</itemPath>
-      <itemPath>lcd.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -14,9 +13,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Lab3_v1.c</itemPath>
+      <itemPath>Lab3_v2.c</itemPath>
       <itemPath>LCDv1.c</itemPath>
-      <itemPath>code.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -25,8 +23,6 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../../Digital2_Lab2/Lab2_ver2.X</Elem>
-    <Elem>../../../PIC16F887_Libraries_C</Elem>
     <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
@@ -589,10 +585,6 @@
         <property key="stack-type" value="compiled"/>
         <property key="user-pack-device-support" value=""/>
       </XC8-config-global>
-      <item path="code.c" ex="true" overriding="false">
-      </item>
-      <item path="lcd.h" ex="true" overriding="false">
-      </item>
     </conf>
   </confs>
 </configurationDescriptor>
