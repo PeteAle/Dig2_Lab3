@@ -1,4 +1,4 @@
-# 1 "LCDv1.c"
+# 1 "lib_adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,15 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "LCDv1.c" 2
-# 15 "LCDv1.c"
+# 1 "lib_adc.c" 2
+
+
+
+
+
+
+
+
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2466,7 +2473,7 @@ extern void __nop(void);
 # 78 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\pic.h" 3
 __attribute__((__unsupported__("The " "FLASH_READ" " macro function is no longer supported. Please use the MPLAB X MCC."))) unsigned char __flash_read(unsigned short addr);
 
-__attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_write(unsigned short addr, unsigned short PORTA);
+__attribute__((__unsupported__("The " "FLASH_WRITE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_write(unsigned short addr, unsigned short data);
 
 __attribute__((__unsupported__("The " "FLASH_ERASE" " macro function is no longer supported. Please use the MPLAB X MCC."))) void __flash_erase(unsigned short addr);
 
@@ -2492,67 +2499,129 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 15 "LCDv1.c" 2
+# 9 "lib_adc.c" 2
 
-# 1 "./LCDv1.h" 1
-# 36 "./LCDv1.h"
-void delay_1ms2(void);
-void lcd8_init2(void);
-void lcd8_cmd(unsigned char cmd);
-void lcd8_write(unsigned char dat);
-void lcd8_display(char *value);
-# 16 "LCDv1.c" 2
+# 1 "./lib_adc.h" 1
+# 36 "./lib_adc.h"
+void adcSetup(void);
+unsigned char analogInSel(unsigned char analogIn);
+unsigned char adcFoscSel(unsigned char fosc);
+# 10 "lib_adc.c" 2
 
 
-void lcd8_init2(){
-    _delay((unsigned long)((20)*(4000000/4000.0)));
-    lcd8_cmd(0x30);
-    _delay((unsigned long)((5)*(4000000/4000.0)));
-    lcd8_cmd(0x30);
-    _delay((unsigned long)((1)*(4000000/4000.0)));
-    lcd8_cmd(0x30);
-    _delay((unsigned long)((1)*(4000000/4000.0)));
-    lcd8_cmd(0x38);
-    lcd8_cmd(0x10);
-    lcd8_cmd(0x01);
-    lcd8_cmd(0x06);
-    lcd8_cmd(0x0C);
-    lcd8_cmd(0x80);
+void adcSetup(void){
+    ADCON0bits.ADON = 1;
+    ADCON1bits.ADFM = 0;
+    ADCON1bits.VCFG1 = 0;
+    ADCON1bits.VCFG0 = 0;
+    PIE1bits.ADIE = 1;
+    PIR1bits.ADIF = 0;
 }
 
-void lcd8_cmd(unsigned char cmd){
-    PORTA = cmd;
-    PORTCbits.RC0 = 0;
-    PORTCbits.RC1 = 0;
-    PORTCbits.RC2 = 1;
-    delay_1ms2();
-    PORTCbits.RC2 = 0;
-}
-
-void lcd8_write(unsigned char dat){
-    PORTA = dat;
-    PORTCbits.RC0 = 1;
-    PORTCbits.RC1 = 0;
-    PORTCbits.RC2 = 1;
-    delay_1ms2();
-    PORTCbits.RC2 = 0;
-}
-
-void lcd8_display(char *value){
-    while(*value){
-        lcd8_write(*value++);
+unsigned char analogInSel(unsigned char analogIn) {
+    switch(analogIn){
+        case 0:
+            ADCON0bits.CHS3 = 0;
+            ADCON0bits.CHS2 = 0;
+            ADCON0bits.CHS1 = 0;
+            ADCON0bits.CHS0 = 0;
+            break;
+        case 1:
+            ADCON0bits.CHS3 = 0;
+            ADCON0bits.CHS2 = 0;
+            ADCON0bits.CHS1 = 0;
+            ADCON0bits.CHS0 = 1;
+            break;
+        case 2:
+            ADCON0bits.CHS3 = 0;
+            ADCON0bits.CHS2 = 0;
+            ADCON0bits.CHS1 = 1;
+            ADCON0bits.CHS0 = 0;
+            break;
+        case 3:
+            ADCON0bits.CHS3 = 0;
+            ADCON0bits.CHS2 = 0;
+            ADCON0bits.CHS1 = 1;
+            ADCON0bits.CHS0 = 1;
+            break;
+        case 4:
+            ADCON0bits.CHS3 = 0;
+            ADCON0bits.CHS2 = 1;
+            ADCON0bits.CHS1 = 0;
+            ADCON0bits.CHS0 = 0;
+            break;
+        case 5:
+            ADCON0bits.CHS3 = 0;
+            ADCON0bits.CHS2 = 1;
+            ADCON0bits.CHS1 = 0;
+            ADCON0bits.CHS0 = 1;
+            break;
+        case 6:
+            ADCON0bits.CHS3 = 0;
+            ADCON0bits.CHS2 = 1;
+            ADCON0bits.CHS1 = 1;
+            ADCON0bits.CHS0 = 0;
+            break;
+        case 7:
+            ADCON0bits.CHS3 = 0;
+            ADCON0bits.CHS2 = 1;
+            ADCON0bits.CHS1 = 1;
+            ADCON0bits.CHS0 = 1;
+            break;
+        case 8:
+            ADCON0bits.CHS3 = 1;
+            ADCON0bits.CHS2 = 0;
+            ADCON0bits.CHS1 = 0;
+            ADCON0bits.CHS0 = 0;
+            break;
+        case 9:
+            ADCON0bits.CHS3 = 1;
+            ADCON0bits.CHS2 = 0;
+            ADCON0bits.CHS1 = 0;
+            ADCON0bits.CHS0 = 1;
+            break;
+        case 10:
+            ADCON0bits.CHS3 = 1;
+            ADCON0bits.CHS2 = 0;
+            ADCON0bits.CHS1 = 1;
+            ADCON0bits.CHS0 = 0;
+            break;
+        case 11:
+            ADCON0bits.CHS3 = 1;
+            ADCON0bits.CHS2 = 0;
+            ADCON0bits.CHS1 = 1;
+            ADCON0bits.CHS0 = 1;
+            break;
+        case 12:
+            ADCON0bits.CHS3 = 1;
+            ADCON0bits.CHS2 = 1;
+            ADCON0bits.CHS1 = 0;
+            ADCON0bits.CHS0 = 0;
+            break;
+        case 13:
+            ADCON0bits.CHS3 = 1;
+            ADCON0bits.CHS2 = 1;
+            ADCON0bits.CHS1 = 0;
+            ADCON0bits.CHS0 = 1;
+            break;
     }
+    return(analogIn);
 }
 
-void lcd8_setCursor(unsigned char fila, unsigned char columna){
-    if (fila == 1){
-        lcd8_cmd(0x80 + columna);
+unsigned char adcFoscSel(unsigned char fosc){
+    switch(fosc){
+        case 0:
+            ADCON0bits.ADCS1 = 0;
+            ADCON0bits.ADCS0 = 0;
+            break;
+        case 1:
+            ADCON0bits.ADCS1 = 0;
+            ADCON0bits.ADCS0 = 1;
+            break;
+        case 3:
+            ADCON0bits.ADCS1 = 1;
+            ADCON0bits.ADCS0 = 0;
+            break;
     }
-    else if (fila == 2){
-        lcd8_cmd(0xC0 + columna);
-    }
-}
-
-void delay_1ms2(void){
-    for (int i = 0; i < 50; i++);
+    return(fosc);
 }

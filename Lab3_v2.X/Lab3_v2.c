@@ -30,25 +30,70 @@
 
 #include <xc.h>
 #include <stdint.h>
-//#include "lib_adc.h"
-//#include "lib_osccon.h"
+#include <stdio.h>
+#include "lib_adc.h"
+#include "lib_osccon.h"
 #include "LCDv1.h"
 
 #define _XTAL_FREQ 4000000
 
+unsigned char pot1 = 0;
+unsigned char pot2 = 0;
+float pot1_val = 0;
+float pot2_val = 0;
+char datos[10];
+
 void setup(void);
+void intEnable(void);
 
 void __interrupt() isr(){
-    
+    di();
+    if (PIR1bits.ADIF == 1 && ADCON0bits.CHS3 == 1 && ADCON0bits.CHS2 == 0 && ADCON0bits.CHS1 == 0 && ADCON0bits.CHS0 == 0){
+        pot1 = ADRESH;
+        PIR1bits.ADIF = 0;
+    }
+    else if (PIR1bits.ADIF == 1 && ADCON0bits.CHS3 == 1 && ADCON0bits.CHS2 == 1 && ADCON0bits.CHS1 == 0 && ADCON0bits.CHS0 == 1){
+        pot2 = ADRESH;
+        PIR1bits.ADIF = 0;
+    }
+    if (ADCON0bits.CHS3 == 1 && ADCON0bits.CHS2 == 0 && ADCON0bits.CHS1 == 0 && ADCON0bits.CHS0 == 0){
+        ADCON0bits.CHS3 = 1;
+        ADCON0bits.CHS2 = 1;
+        ADCON0bits.CHS1 = 0;
+        ADCON0bits.CHS0 = 1;
+    }
+    else if (ADCON0bits.CHS3 == 1 && ADCON0bits.CHS2 == 1 && ADCON0bits.CHS1 == 0 && ADCON0bits.CHS0 == 1){
+        ADCON0bits.CHS3 = 1;
+        ADCON0bits.CHS2 = 0;
+        ADCON0bits.CHS1 = 0;
+        ADCON0bits.CHS0 = 0;
+    }
+    ei();
 }
 
 void main(void){
     setup();
+    oscInt(1);
     lcd8_init2();
-    lcd8_display("PINCHE PIRUJA");
-    lcd8_cmd(0xC0);
-    lcd8_display("CHINGUESE");
-    while(1);
+    adcSetup();
+    analogInSel(8);
+    adcFoscSel(1);
+    intEnable();
+    while(1){
+        if (ADCON0bits.GO_DONE != 1){
+            ADCON0bits.GO_DONE = 1;
+        }
+        lcd8_cmd(0x80);
+        delay_1ms2();
+        lcd8_display("S1:");
+        delay_1ms2();
+        pot1_val = (pot1*5.0)/255;
+        lcd8_cmd(0xC0);
+        delay_1ms2();
+        sprintf(datos, "%.1f", pot1_val);
+        lcd8_display(datos);
+        delay_1ms2();
+    }
 }
 
 void setup(void){
@@ -60,7 +105,13 @@ void setup(void){
     ANSELHbits.ANS13 = 1;
     ANSELHbits.ANS8 = 1;
     PORTA = 0x00;
+    PORTB = 0x00;
     PORTC = 0x00;
     PORTD = 0x00;
 }
 
+void intEnable(void){
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIE1bits.ADIE = 1;
+}

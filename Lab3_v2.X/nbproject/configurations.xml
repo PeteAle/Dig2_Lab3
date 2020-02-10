@@ -15,6 +15,10 @@
                    projectFiles="true">
       <itemPath>Lab3_v2.c</itemPath>
       <itemPath>LCDv1.c</itemPath>
+      <itemPath>lib_adc.c</itemPath>
+      <itemPath>lib_adc.h</itemPath>
+      <itemPath>lib_osccon.c</itemPath>
+      <itemPath>lib_osccon.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

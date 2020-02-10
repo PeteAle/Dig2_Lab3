@@ -55,6 +55,15 @@ void lcd8_display(char *value){
     }
 }
 
+void lcd8_setCursor(unsigned char fila, unsigned char columna){
+    if (fila == 1){
+        lcd8_cmd(0x80 + columna);
+    }
+    else if (fila == 2){
+        lcd8_cmd(0xC0 + columna);
+    }
+}
+
 void delay_1ms2(void){
     for (int i = 0; i < 50; i++);
 }

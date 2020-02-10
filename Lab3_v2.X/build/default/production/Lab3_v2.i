@@ -2648,7 +2648,116 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 32 "Lab3_v2.c" 2
 
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 1 3
 
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 4 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 2 3
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\__null.h" 1 3
+# 5 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdarg.h" 1 3
+
+
+
+
+
+
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+# 11 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 2 3
+# 43 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 3
+struct __prbuf
+{
+ char * ptr;
+ void (* func)(char);
+};
+# 85 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 3
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\conio.h" 1 3
+
+
+
+
+
+
+
+# 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\errno.h" 1 3
+# 29 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\errno.h" 3
+extern int errno;
+# 8 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\conio.h" 2 3
+
+
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+
+
+extern char * cgets(char *);
+extern void cputs(const char *);
+# 85 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 2 3
+
+
+
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+# 180 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c90\\stdio.h" 3
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+# 33 "Lab3_v2.c" 2
+
+# 1 "./lib_adc.h" 1
+# 36 "./lib_adc.h"
+void adcSetup(void);
+unsigned char analogInSel(unsigned char analogIn);
+unsigned char adcFoscSel(unsigned char fosc);
+# 34 "Lab3_v2.c" 2
+
+# 1 "./lib_osccon.h" 1
+# 36 "./lib_osccon.h"
+unsigned char oscInt(unsigned char freq);
+# 35 "Lab3_v2.c" 2
 
 # 1 "./LCDv1.h" 1
 # 36 "./LCDv1.h"
@@ -2657,24 +2766,68 @@ void lcd8_init2(void);
 void lcd8_cmd(unsigned char cmd);
 void lcd8_write(unsigned char dat);
 void lcd8_display(char *value);
-# 35 "Lab3_v2.c" 2
+# 36 "Lab3_v2.c" 2
 
 
 
+
+unsigned char pot1 = 0;
+unsigned char pot2 = 0;
+float pot1_val = 0;
+float pot2_val = 0;
+char datos[10];
 
 void setup(void);
+void intEnable(void);
 
 void __attribute__((picinterrupt(("")))) isr(){
-
+    (INTCONbits.GIE = 0);
+    if (PIR1bits.ADIF == 1 && ADCON0bits.CHS3 == 1 && ADCON0bits.CHS2 == 0 && ADCON0bits.CHS1 == 0 && ADCON0bits.CHS0 == 0){
+        pot1 = ADRESH;
+        PIR1bits.ADIF = 0;
+    }
+    else if (PIR1bits.ADIF == 1 && ADCON0bits.CHS3 == 1 && ADCON0bits.CHS2 == 1 && ADCON0bits.CHS1 == 0 && ADCON0bits.CHS0 == 1){
+        pot2 = ADRESH;
+        PIR1bits.ADIF = 0;
+    }
+    if (ADCON0bits.CHS3 == 1 && ADCON0bits.CHS2 == 0 && ADCON0bits.CHS1 == 0 && ADCON0bits.CHS0 == 0){
+        ADCON0bits.CHS3 = 1;
+        ADCON0bits.CHS2 = 1;
+        ADCON0bits.CHS1 = 0;
+        ADCON0bits.CHS0 = 1;
+    }
+    else if (ADCON0bits.CHS3 == 1 && ADCON0bits.CHS2 == 1 && ADCON0bits.CHS1 == 0 && ADCON0bits.CHS0 == 1){
+        ADCON0bits.CHS3 = 1;
+        ADCON0bits.CHS2 = 0;
+        ADCON0bits.CHS1 = 0;
+        ADCON0bits.CHS0 = 0;
+    }
+    (INTCONbits.GIE = 1);
 }
 
 void main(void){
     setup();
+    oscInt(1);
     lcd8_init2();
-    lcd8_display("PINCHE PIRUJA");
-    lcd8_cmd(0xC0);
-    lcd8_display("CHINGUESE");
-    while(1);
+    adcSetup();
+    analogInSel(8);
+    adcFoscSel(1);
+    intEnable();
+    while(1){
+        if (ADCON0bits.GO_DONE != 1){
+            ADCON0bits.GO_DONE = 1;
+        }
+        lcd8_cmd(0x80);
+        delay_1ms2();
+        lcd8_display("S1:");
+        delay_1ms2();
+        pot1_val = (pot1*5.0)/255;
+        lcd8_cmd(0xC0);
+        delay_1ms2();
+        sprintf(datos, "%.1f", pot1_val);
+        lcd8_display(datos);
+        delay_1ms2();
+    }
 }
 
 void setup(void){
@@ -2686,6 +2839,13 @@ void setup(void){
     ANSELHbits.ANS13 = 1;
     ANSELHbits.ANS8 = 1;
     PORTA = 0x00;
+    PORTB = 0x00;
     PORTC = 0x00;
     PORTD = 0x00;
+}
+
+void intEnable(void){
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIE1bits.ADIE = 1;
 }
