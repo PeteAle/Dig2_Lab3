@@ -38,6 +38,7 @@ void lcd8_init2(void);
 void lcd8_cmd(unsigned char cmd);
 void lcd8_write(unsigned char dat);
 void lcd8_display(char *value);
+void lcd8_setCursor(unsigned char fila, unsigned char columna);
 
 
 #endif	/* XC_HEADER_TEMPLATE_H */

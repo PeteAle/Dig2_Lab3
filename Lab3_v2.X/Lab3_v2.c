@@ -41,7 +41,8 @@ unsigned char pot1 = 0;
 unsigned char pot2 = 0;
 float pot1_val = 0;
 float pot2_val = 0;
-char datos[10];
+char datos1[10];
+char datos2[10];
 
 void setup(void);
 void intEnable(void);
@@ -83,16 +84,30 @@ void main(void){
         if (ADCON0bits.GO_DONE != 1){
             ADCON0bits.GO_DONE = 1;
         }
-        lcd8_cmd(0x80);
+        lcd8_setCursor(1,1);
         delay_1ms2();
         lcd8_display("S1:");
         delay_1ms2();
+        lcd8_setCursor(1,6);
+        delay_1ms2();
+        lcd8_display("S2:");
+        delay_1ms2();
+        lcd8_setCursor(1,11);
+        delay_1ms2();
+        lcd8_display("S3:");
+        delay_1ms2();
         pot1_val = (pot1*5.0)/255;
-        lcd8_cmd(0xC0);
+        pot2_val = (pot2*5.0)/255;
+        lcd8_setCursor(2,1);
         delay_1ms2();
-        sprintf(datos, "%.1f", pot1_val);
-        lcd8_display(datos);
+        sprintf(datos1, "%.1f", pot1_val);
+        lcd8_display(datos1);
         delay_1ms2();
+        lcd8_setCursor(2,6);
+        delay_1ms2();
+        sprintf(datos2, "%.1f", pot2_val);
+        lcd8_display(datos2);
+        __delay_ms(10);
     }
 }
 
