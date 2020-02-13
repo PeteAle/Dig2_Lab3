@@ -7,7 +7,7 @@
       <itemPath>LCDv1.h</itemPath>
       <itemPath>lib_adc.h</itemPath>
       <itemPath>lib_osccon.h</itemPath>
-      <itemPath>EUSART.h</itemPath>
+      <itemPath>eusart8bits.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,7 +20,7 @@
       <itemPath>LCDv1.c</itemPath>
       <itemPath>lib_adc.c</itemPath>
       <itemPath>lib_osccon.c</itemPath>
-      <itemPath>EUSART.c</itemPath>
+      <itemPath>eusart8bits.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

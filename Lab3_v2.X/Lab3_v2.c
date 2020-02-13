@@ -39,14 +39,20 @@
 
 #define _XTAL_FREQ 4000000
 
+uint8_t cuenta = 0;
+uint8_t cuenta2 = 0;
 float pot1 = 0;
 float pot2 = 0;
 uint16_t temp = 0, temp2 = 0;
 uint16_t unid1 = 0, decen1 = 0, cent1 = 0, unid2 = 0, decen2 = 0, cent2 = 0;
+unsigned char rxdata = 0;
 
 
 void setup(void);
 void intEnable(void);
+void eusartTX8(void);
+void eusartRX8(void);
+void baudRate(void);
 
 void __interrupt() isr(){
     di();
@@ -131,6 +137,16 @@ void main(void){
         delay_1ms2();
         lcd8_dispNum(unid2);
         delay_1ms2();
+        // Verificación del RX.
+        if (PIR1bits.RCIF == 1){
+            rxdata = RCREG;
+            lcd8_setCursor(2,11);
+            delay_1ms2();
+            if (rxdata == 1){
+                cuenta += cuenta;
+                
+            }
+        }
     }
 }
 
@@ -152,9 +168,33 @@ void intEnable(void){
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
     PIE1bits.ADIE = 1;
+    PIE1bits.TXIE = 0;
+    PIE1bits.RCIE = 1;
 }
 
-void eusartEn (void){
+void eusartTX8(void){
     TXSTAbits.TX9 = 0;
-    
+    TXSTAbits.TXEN = 0;
+    TXSTAbits.SYNC = 0;
+    TXSTAbits.BRGH = 1;
+    TXSTAbits.TRMT = 1;
+}
+
+void eusartRX8(void){
+    RCSTAbits.SPEN = 1;
+    RCSTAbits.RX9 = 0;
+    RCSTAbits.CREN = 1;
+    RCSTAbits.FERR = 0;
+    RCSTAbits.OERR = 0;
+    PIR1bits.RCIF = 0;
+}
+
+void baudRate(void){
+    BAUDCTLbits.RCIDL = 0;
+    BAUDCTLbits.SCKP = 0;
+    BAUDCTLbits.BRG16 = 0;
+    BAUDCTLbits.WUE = 0;
+    BAUDCTLbits.ABDEN = 0;
+    BAUDCTLbits.ABDOVF = 0;
+    SPBRG = 6;
 }

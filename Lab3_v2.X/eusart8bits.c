@@ -7,6 +7,6 @@
 
 
 #include <xc.h>
-#include "EUSART.h"
+#include "eusart8bits.h"
 
 
