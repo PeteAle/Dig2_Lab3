@@ -31,18 +31,19 @@
 #include <xc.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "lib_adc.h"
 #include "lib_osccon.h"
 #include "LCDv1.h"
 
 #define _XTAL_FREQ 4000000
 
-unsigned char pot1 = 0;
-unsigned char pot2 = 0;
-float pot1_val = 0;
-float pot2_val = 0;
-char datos1[10];
-char datos2[10];
+float pot1 = 0;
+float pot2 = 0;
+uint16_t temp = 0, temp2 = 0;
+uint16_t unid1 = 0, decen1 = 0, cent1 = 0, unid2 = 0, decen2 = 0, cent2 = 0;
+
 
 void setup(void);
 void intEnable(void);
@@ -86,28 +87,50 @@ void main(void){
         }
         lcd8_setCursor(1,1);
         delay_1ms2();
-        lcd8_display("S1:");
+        lcd8_dispChar("S1:");
         delay_1ms2();
         lcd8_setCursor(1,6);
         delay_1ms2();
-        lcd8_display("S2:");
+        lcd8_dispChar("S2:");
         delay_1ms2();
         lcd8_setCursor(1,11);
         delay_1ms2();
-        lcd8_display("S3:");
+        lcd8_dispChar("S3:");
         delay_1ms2();
-        pot1_val = (pot1*5.0)/255;
-        pot2_val = (pot2*5.0)/255;
+        // Envío de datos del Pot1 al LCD bajo S1.
         lcd8_setCursor(2,1);
         delay_1ms2();
-        sprintf(datos1, "%.1f", pot1_val);
-        lcd8_display(datos1);
+        temp = ((pot1*5.0)/255.0)*100;
+        cent1 = temp/100;
+        temp = temp - (cent1*100);
+        decen1 = temp/10;
+        temp = temp - (decen1*10);        
+        unid1 = temp;
+        lcd8_dispNum(cent1);
         delay_1ms2();
+        lcd8_dispChar(".");
+        delay_1ms2();
+        lcd8_dispNum(decen1);
+        delay_1ms2();
+        lcd8_dispNum(unid1);
+        delay_1ms2();
+        // Envío de datos del Pot2 a LCD bajo S2.
         lcd8_setCursor(2,6);
         delay_1ms2();
-        sprintf(datos2, "%.1f", pot2_val);
-        lcd8_display(datos2);
-        __delay_ms(10);
+        temp2 = ((pot2*5.0)/255.0)*100;
+        cent2 = temp2/100;
+        temp2 = temp2 - (cent2*100);
+        decen2 = temp2/10;
+        temp2 = temp2 - (decen2*10);
+        unid2 = temp2;
+        lcd8_dispNum(cent2);
+        delay_1ms2();
+        lcd8_dispChar(".");
+        delay_1ms2();
+        lcd8_dispNum(decen2);
+        delay_1ms2();
+        lcd8_dispNum(unid2);
+        delay_1ms2();
     }
 }
 
@@ -129,4 +152,9 @@ void intEnable(void){
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
     PIE1bits.ADIE = 1;
+}
+
+void eusartEn (void){
+    TXSTAbits.TX9 = 0;
+    
 }

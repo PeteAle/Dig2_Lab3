@@ -2499,8 +2499,9 @@ extern __bank0 __bit __timeout;
 void delay_1ms2(void);
 void lcd8_init2(void);
 void lcd8_cmd(unsigned char cmd);
-void lcd8_write(unsigned char dat);
-void lcd8_display(char *value);
+void lcd8_write(unsigned int dat);
+void lcd8_dispChar(char *value);
+void lcd8_dispNum(int val_num);
 void lcd8_setCursor(unsigned char fila, unsigned char columna);
 # 16 "LCDv1.c" 2
 
@@ -2530,7 +2531,7 @@ void lcd8_cmd(unsigned char cmd){
     PORTCbits.RC2 = 0;
 }
 
-void lcd8_write(unsigned char dat){
+void lcd8_write(unsigned int dat){
     PORTA = dat;
     PORTCbits.RC0 = 1;
     PORTCbits.RC1 = 0;
@@ -2539,10 +2540,14 @@ void lcd8_write(unsigned char dat){
     PORTCbits.RC2 = 0;
 }
 
-void lcd8_display(char *value){
+void lcd8_dispChar(char *value){
     while(*value){
         lcd8_write(*value++);
     }
+}
+
+void lcd8_dispNum(int val_num){
+    lcd8_write(val_num + 0x30);
 }
 
 void lcd8_setCursor(unsigned char fila, unsigned char columna){

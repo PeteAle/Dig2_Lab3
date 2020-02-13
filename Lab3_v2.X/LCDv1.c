@@ -40,7 +40,7 @@ void lcd8_cmd(unsigned char cmd){
     en = 0;
 }
 
-void lcd8_write(unsigned char dat){
+void lcd8_write(unsigned int dat){
     data = dat;
     rs = 1;
     rw = 0;
@@ -49,10 +49,14 @@ void lcd8_write(unsigned char dat){
     en = 0;
 }
 
-void lcd8_display(char *value){
+void lcd8_dispChar(char *value){
     while(*value){
         lcd8_write(*value++);
     }
+}
+
+void lcd8_dispNum(int val_num){
+    lcd8_write(val_num + 0x30);
 }
 
 void lcd8_setCursor(unsigned char fila, unsigned char columna){
