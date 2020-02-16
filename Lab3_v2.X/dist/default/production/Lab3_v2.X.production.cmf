@@ -43,7 +43,7 @@ bssBANK0 BANK0 1 69 69 1 1
 bssBANK1 BANK1 1 A0 A0 1A 1
 strings STRING 0 800 800 14 2
 clrtext CODE 0 A3B A3B 8 2
-$C:\Users\Peter\AppData\Local\Temp\sh98.o
+$C:\Users\Peter\AppData\Local\Temp\s4pk.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 E E 3 2
 config CONFIG 0 2007 2007 2 2
@@ -97,19 +97,19 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\Lab3_v2.X.production.o
-11 cinit CODE >1185:C:\Users\Peter\AppData\Local\Temp\sh98.s
-11 cinit CODE >1188:C:\Users\Peter\AppData\Local\Temp\sh98.s
-11 cinit CODE >1253:C:\Users\Peter\AppData\Local\Temp\sh98.s
-12 cinit CODE >1254:C:\Users\Peter\AppData\Local\Temp\sh98.s
-13 cinit CODE >1255:C:\Users\Peter\AppData\Local\Temp\sh98.s
-14 cinit CODE >1258:C:\Users\Peter\AppData\Local\Temp\sh98.s
-15 cinit CODE >1259:C:\Users\Peter\AppData\Local\Temp\sh98.s
-16 cinit CODE >1260:C:\Users\Peter\AppData\Local\Temp\sh98.s
-17 cinit CODE >1261:C:\Users\Peter\AppData\Local\Temp\sh98.s
-18 cinit CODE >1262:C:\Users\Peter\AppData\Local\Temp\sh98.s
-1D cinit CODE >1268:C:\Users\Peter\AppData\Local\Temp\sh98.s
-1D cinit CODE >1270:C:\Users\Peter\AppData\Local\Temp\sh98.s
-1E cinit CODE >1271:C:\Users\Peter\AppData\Local\Temp\sh98.s
+11 cinit CODE >1185:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+11 cinit CODE >1188:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+11 cinit CODE >1253:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+12 cinit CODE >1254:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+13 cinit CODE >1255:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+14 cinit CODE >1258:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+15 cinit CODE >1259:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+16 cinit CODE >1260:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+17 cinit CODE >1261:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+18 cinit CODE >1262:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+1D cinit CODE >1268:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+1D cinit CODE >1270:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+1E cinit CODE >1271:C:\Users\Peter\AppData\Local\Temp\s4pk.s
 4 intentry CODE >57:C:\Users\Peter\Documents\GitHub\Dig2_Lab3\Lab3_v2.X\Lab3_v2.c
 733 text21 CODE >10:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
 734 text21 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c90\common\xxtofl.c
@@ -705,16 +705,16 @@ B1 maintext CODE >109:C:\Users\Peter\Documents\GitHub\Dig2_Lab3\Lab3_v2.X\Lab3_v
 3BE maintext CODE >144:C:\Users\Peter\Documents\GitHub\Dig2_Lab3\Lab3_v2.X\Lab3_v2.c
 3C3 maintext CODE >145:C:\Users\Peter\Documents\GitHub\Dig2_Lab3\Lab3_v2.X\Lab3_v2.c
 3CA maintext CODE >146:C:\Users\Peter\Documents\GitHub\Dig2_Lab3\Lab3_v2.X\Lab3_v2.c
-A3B clrtext CODE >1240:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A3B clrtext CODE >1241:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A3C clrtext CODE >1242:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A3C clrtext CODE >1243:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A3D clrtext CODE >1244:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A3E clrtext CODE >1245:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A3F clrtext CODE >1246:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A40 clrtext CODE >1247:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A41 clrtext CODE >1248:C:\Users\Peter\AppData\Local\Temp\sh98.s
-A42 clrtext CODE >1249:C:\Users\Peter\AppData\Local\Temp\sh98.s
+A3B clrtext CODE >1240:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A3B clrtext CODE >1241:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A3C clrtext CODE >1242:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A3C clrtext CODE >1243:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A3D clrtext CODE >1244:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A3E clrtext CODE >1245:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A3F clrtext CODE >1246:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A40 clrtext CODE >1247:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A41 clrtext CODE >1248:C:\Users\Peter\AppData\Local\Temp\s4pk.s
+A42 clrtext CODE >1249:C:\Users\Peter\AppData\Local\Temp\s4pk.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -738,13 +738,13 @@ __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __end_of_delay_1ms2 1536 0 CODE 0 text9 dist/default/production\Lab3_v2.X.production.o
 __Hstrings 0 0 ABS 0 strings -
 __end_of_lcd8_dispNum 14E0 0 CODE 0 text6 dist/default/production\Lab3_v2.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\Peter\AppData\Local\Temp\sh98.o
+___sp 0 0 STACK 2 stack C:\Users\Peter\AppData\Local\Temp\s4pk.o
 _main 42 0 CODE 0 maintext dist/default/production\Lab3_v2.X.production.o
 _pot1 A4 0 BANK1 1 bssBANK1 dist/default/production\Lab3_v2.X.production.o
 _pot2 A0 0 BANK1 1 bssBANK1 dist/default/production\Lab3_v2.X.production.o
 _temp B6 0 BANK1 1 bssBANK1 dist/default/production\Lab3_v2.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\Lab3_v2.X.production.o
-start 1C 0 CODE 0 init C:\Users\Peter\AppData\Local\Temp\sh98.o
+start 1C 0 CODE 0 init C:\Users\Peter\AppData\Local\Temp\s4pk.o
 ___flmul@aexp 41 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
 ___flmul@bexp 42 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
 ___flmul@prod 43 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
@@ -760,12 +760,12 @@ __size_of___lwdiv 0 0 ABS 0 - dist/default/production\Lab3_v2.X.production.o
 lcd8_cmd@cmd 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 oscInt@freq 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\sh98.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\sh98.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\sh98.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\sh98.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\sh98.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\sh98.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\s4pk.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\s4pk.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\s4pk.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\s4pk.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\s4pk.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Peter\AppData\Local\Temp\s4pk.o
 _OSCCONbits 8F 0 ABS 0 - dist/default/production\Lab3_v2.X.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production\Lab3_v2.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -787,8 +787,8 @@ __end_of___flmul E66 0 CODE 0 text17 dist/default/production\Lab3_v2.X.productio
 __end_of___fltol 1C46 0 CODE 0 text16 dist/default/production\Lab3_v2.X.production.o
 __end_of___lwdiv 1732 0 CODE 0 text15 dist/default/production\Lab3_v2.X.production.o
 __Umul8_16@multiplicand 26 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\Peter\AppData\Local\Temp\sh98.o
-___stacklo 0 0 ABS 0 - C:\Users\Peter\AppData\Local\Temp\sh98.o
+___stackhi 0 0 ABS 0 - C:\Users\Peter\AppData\Local\Temp\s4pk.o
+___stacklo 0 0 ABS 0 - C:\Users\Peter\AppData\Local\Temp\s4pk.o
 _BAUDCTLbits 187 0 ABS 0 - dist/default/production\Lab3_v2.X.production.o
 __size_of_lcd8_setCursor 0 0 ABS 0 - dist/default/production\Lab3_v2.X.production.o
 ___lwdiv@quotient 2B 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
@@ -811,7 +811,7 @@ clear_ram0 1476 0 CODE 0 clrtext dist/default/production\Lab3_v2.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
 __pcstackBANK1 BA 0 BANK1 1 cstackBANK1 dist/default/production\Lab3_v2.X.production.o
 __end_of_oscInt 18DA 0 CODE 0 text2 dist/default/production\Lab3_v2.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Peter\AppData\Local\Temp\sh98.o
+___int_sp 0 0 STACK 2 stack C:\Users\Peter\AppData\Local\Temp\s4pk.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -881,7 +881,7 @@ _intEnable 1466 0 CODE 0 text10 dist/default/production\Lab3_v2.X.production.o
 lcd8_write@dat 28 0 BANK0 1 cstackBANK0 dist/default/production\Lab3_v2.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 __stringtab 1000 0 STRING 0 strings dist/default/production\Lab3_v2.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Peter\AppData\Local\Temp\sh98.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Peter\AppData\Local\Temp\s4pk.o
 __size_of_adcSetup 0 0 ABS 0 - dist/default/production\Lab3_v2.X.production.o
 __end_of___xxtofl FDA 0 CODE 0 text21 dist/default/production\Lab3_v2.X.production.o
 __end_of_lcd8_cmd 1502 0 CODE 0 text5 dist/default/production\Lab3_v2.X.production.o

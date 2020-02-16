@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=Lab3_v2.c LCDv1.c lib_adc.c lib_osccon.c eusart8bits.c
+SOURCEFILES_QUOTED_IF_SPACED=Lab3_v2.c LCDv1.c eusart8bits.c lib_adc.c lib_osccon.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Lab3_v2.p1 ${OBJECTDIR}/LCDv1.p1 ${OBJECTDIR}/lib_adc.p1 ${OBJECTDIR}/lib_osccon.p1 ${OBJECTDIR}/eusart8bits.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/Lab3_v2.p1.d ${OBJECTDIR}/LCDv1.p1.d ${OBJECTDIR}/lib_adc.p1.d ${OBJECTDIR}/lib_osccon.p1.d ${OBJECTDIR}/eusart8bits.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/Lab3_v2.p1 ${OBJECTDIR}/LCDv1.p1 ${OBJECTDIR}/eusart8bits.p1 ${OBJECTDIR}/lib_adc.p1 ${OBJECTDIR}/lib_osccon.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/Lab3_v2.p1.d ${OBJECTDIR}/LCDv1.p1.d ${OBJECTDIR}/eusart8bits.p1.d ${OBJECTDIR}/lib_adc.p1.d ${OBJECTDIR}/lib_osccon.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/Lab3_v2.p1 ${OBJECTDIR}/LCDv1.p1 ${OBJECTDIR}/lib_adc.p1 ${OBJECTDIR}/lib_osccon.p1 ${OBJECTDIR}/eusart8bits.p1
+OBJECTFILES=${OBJECTDIR}/Lab3_v2.p1 ${OBJECTDIR}/LCDv1.p1 ${OBJECTDIR}/eusart8bits.p1 ${OBJECTDIR}/lib_adc.p1 ${OBJECTDIR}/lib_osccon.p1
 
 # Source Files
-SOURCEFILES=Lab3_v2.c LCDv1.c lib_adc.c lib_osccon.c eusart8bits.c
+SOURCEFILES=Lab3_v2.c LCDv1.c eusart8bits.c lib_adc.c lib_osccon.c
 
 
 
@@ -110,6 +110,14 @@ ${OBJECTDIR}/LCDv1.p1: LCDv1.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCDv1.d ${OBJECTDIR}/LCDv1.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCDv1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/eusart8bits.p1: eusart8bits.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/eusart8bits.p1.d 
+	@${RM} ${OBJECTDIR}/eusart8bits.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/eusart8bits.p1 eusart8bits.c 
+	@-${MV} ${OBJECTDIR}/eusart8bits.d ${OBJECTDIR}/eusart8bits.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/eusart8bits.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/lib_adc.p1: lib_adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lib_adc.p1.d 
@@ -125,14 +133,6 @@ ${OBJECTDIR}/lib_osccon.p1: lib_osccon.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/lib_osccon.p1 lib_osccon.c 
 	@-${MV} ${OBJECTDIR}/lib_osccon.d ${OBJECTDIR}/lib_osccon.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/lib_osccon.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/eusart8bits.p1: eusart8bits.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/eusart8bits.p1.d 
-	@${RM} ${OBJECTDIR}/eusart8bits.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/eusart8bits.p1 eusart8bits.c 
-	@-${MV} ${OBJECTDIR}/eusart8bits.d ${OBJECTDIR}/eusart8bits.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/eusart8bits.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
 ${OBJECTDIR}/Lab3_v2.p1: Lab3_v2.c  nbproject/Makefile-${CND_CONF}.mk
@@ -151,6 +151,14 @@ ${OBJECTDIR}/LCDv1.p1: LCDv1.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LCDv1.d ${OBJECTDIR}/LCDv1.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LCDv1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/eusart8bits.p1: eusart8bits.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/eusart8bits.p1.d 
+	@${RM} ${OBJECTDIR}/eusart8bits.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/eusart8bits.p1 eusart8bits.c 
+	@-${MV} ${OBJECTDIR}/eusart8bits.d ${OBJECTDIR}/eusart8bits.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/eusart8bits.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 ${OBJECTDIR}/lib_adc.p1: lib_adc.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/lib_adc.p1.d 
@@ -166,14 +174,6 @@ ${OBJECTDIR}/lib_osccon.p1: lib_osccon.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/lib_osccon.p1 lib_osccon.c 
 	@-${MV} ${OBJECTDIR}/lib_osccon.d ${OBJECTDIR}/lib_osccon.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/lib_osccon.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/eusart8bits.p1: eusart8bits.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/eusart8bits.p1.d 
-	@${RM} ${OBJECTDIR}/eusart8bits.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/eusart8bits.p1 eusart8bits.c 
-	@-${MV} ${OBJECTDIR}/eusart8bits.d ${OBJECTDIR}/eusart8bits.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/eusart8bits.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
